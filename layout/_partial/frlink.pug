@@ -1,0 +1,16 @@
+block title
+  title= page.title + ' | ' + config.title
+
+block  content
+  - for (var i in theme.links)
+    p
+      a.friendurl(target='_blank', href=theme.links[i].url, title=theme.links[i].title)
+    a.friendurl(target='_blank', href=theme.links[i].url, title=theme.links[i].title)
+      .frienddiv
+        .frienddivleft
+          img.myfriend(src=theme.links[i].src)
+        .frienddivright
+          |  #{theme.links[i].title}
+          br
+          |  #{theme.links[i].dec}
+  

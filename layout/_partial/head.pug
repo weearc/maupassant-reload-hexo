@@ -1,0 +1,69 @@
+head
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0', name='viewport')
+    meta(content='yes', name='apple-mobile-web-app-capable')
+    meta(content='black-translucent', name='apple-mobile-web-app-status-bar-style')
+    meta(content='telephone=no', name='format-detection')
+    meta(name='description', content=config.description)
+    block title
+    if theme.greyful
+      link(rel='stylesheet', type='text/css', href='//cdn.jsdelivr.net/gh/malaohu/jscdn/grey.css')
+    link(rel='stylesheet', type='text/css', href=url_for(theme.css) + '/style.css' + '?v=' + theme.version)
+    link(rel='stylesheet', type='text/css', href='//lib.baomitu.com/normalize/8.0.1/normalize.min.css')
+    link(rel='stylesheet', type='text/css', href='//lib.baomitu.com/pure/1.0.0/pure-min.css')
+    link(rel='stylesheet', type='text/css', href='//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css')
+    link(rel='stylesheet', href='//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    //- get bulma
+    //link(rel='stylesheet', type='text/css', href='//cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css')
+    //script(type='text/javascript', src='//use.fontawesome.com/releases/v5.3.1/js/all.js')
+    script(type='text/javascript', src='//lib.baomitu.com/jquery/3.3.1/jquery.min.js')
+    link(rel='icon', mask='',sizes='any', href=url_for('favicon.ico'))
+    link(rel='Shortcut Icon', type='image/x-icon', href=url_for('favicon.ico'))
+    link(rel='apple-touch-icon', href=url_for('apple-touch-icon.png'))
+    link(rel='apple-touch-icon-precomposed', href=url_for('apple-touch-icon.png'))
+    //- title of the pages hide and show start
+    if theme.titlehide
+      script(src='/js/title-hide.js')
+    //- title of the pages hide and show end
+    //- 插入进度条
+    script(src='//cdn.bootcss.com/pace/1.0.2/pace.min.js')
+    link(href='//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css', rel='stylesheet')
+    style.
+      .pace .pace-progress {
+      background: #1abc9c;
+      height: 3px;
+      }
+      .pace .pace-progress-inner {
+      box-shadow: 0 0 10px #1abc9c, 0 0 5px     #1abc9c;
+      }
+      .pace .pace-activity {
+      border-top-color: #1abc9c; 
+      border-left-color: #1abc9c; 
+      }
+    //- 插入进度掉end 
+    //- 烟花点击效果
+    if theme.fireworks
+      canvas.fireworks(style='position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;')
+        script(type='text/javascript', src='//cdn.bootcss.com/animejs/2.2.0/anime.min.js')
+        script(type='text/javascript', src='/js/fireworks.js')
+    //- 烟花点击效果end  
+    if config.feed
+      link(rel='alternate', type=feed_type, href=url_for(config.feed.path))
+    if theme.google_analytics
+      script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create','#{theme.google_analytics}','auto');ga('send','pageview');
+
+    if theme.baidu_analytics
+      script.
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = 'https://hm.baidu.com/hm.js?' + '#{theme.baidu_analytics}';
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+          })();
+

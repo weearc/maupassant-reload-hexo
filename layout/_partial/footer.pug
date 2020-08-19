@@ -1,0 +1,26 @@
+#footer= 'Copyright © ' + date(Date.now(), 'YYYY') + ' '
+  | |  
+  i.fa.fa-moon-o
+  a(href=url_for('.'), rel='nofollow')= config.title + '.' 
+  br
+  |  Powered by
+  a(rel='nofollow', target='_blank', href='https://hexo.io')  Hexo |
+  a(rel='nofollow', target='_blank', href='https://github.com/tufu9441/maupassant-hexo')  Theme
+  |  by
+  a(rel='nofollow', target='_blank', href='https://github.com/pagecho')  Cho.
+  br
+  script(async='', src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js')
+  span#busuanzi_container_site_pv
+    i.fa.fa-eye
+    | 访问量
+    span#busuanzi_value_site_pv
+    | 次 |  
+  span#busuanzi_container_site_uv
+    i.fa.fa-user-md
+    | 访客数
+    span#busuanzi_value_site_uv
+    | 人
+  br
+  if theme.icp
+    a(href='http://beian.miit.gov.cn/')=theme.province + "ICP备" + theme.icp_code + "号"
+    br
